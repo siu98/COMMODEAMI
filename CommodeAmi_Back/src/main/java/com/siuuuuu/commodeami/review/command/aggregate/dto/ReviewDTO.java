@@ -1,7 +1,7 @@
 package com.siuuuuu.commodeami.review.command.aggregate.dto;
 
-import com.siuuuuu_o3o.commodeami.movie.command.aggregate.entity.Movie;
-import com.siuuuuu_o3o.commodeami.user.command.aggregate.entity.User;
+import com.siuuuuu.commodeami.movie.command.aggregate.entity.Movie;
+import com.siuuuuu.commodeami.user.command.aggregate.entity.User;
 import lombok.Data;
 
 import java.time.LocalDateTime;

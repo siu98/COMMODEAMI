@@ -1,8 +1,8 @@
 package com.siuuuuu.commodeami.common;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.siuuuuu_o3o.commodeami.common.exception.CommonException;
-import com.siuuuuu_o3o.commodeami.common.exception.ExceptionDTO;
+import com.siuuuuu.commodeami.common.exception.CommonException;
+import com.siuuuuu.commodeami.common.exception.ExceptionDTO;
 import jakarta.annotation.Nullable;
 import lombok.Data;
 import lombok.NonNull;

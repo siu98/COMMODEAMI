@@ -1,7 +1,7 @@
 package com.siuuuuu.commodeami.review.command.aggregate.entity;
 
-import com.siuuuuu_o3o.commodeami.movie.command.aggregate.entity.Movie;
-import com.siuuuuu_o3o.commodeami.user.command.aggregate.entity.User;
+import com.siuuuuu.commodeami.movie.command.aggregate.entity.Movie;
+import com.siuuuuu.commodeami.user.command.aggregate.entity.User;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -21,7 +21,7 @@ public class Review {
 
     // 별점
     @Column(name="scope")
-    private Long scope;
+    private Double scope;
 
     // 생성일
     @CreationTimestamp

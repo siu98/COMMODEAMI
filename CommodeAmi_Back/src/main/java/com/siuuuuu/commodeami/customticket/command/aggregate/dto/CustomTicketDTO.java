@@ -1,6 +1,6 @@
 package com.siuuuuu.commodeami.customticket.command.aggregate.dto;
 
-import com.siuuuuu_o3o.commodeami.user.command.aggregate.entity.User;
+import com.siuuuuu.commodeami.user.command.aggregate.entity.User;
 import lombok.Data;
 
 @Data

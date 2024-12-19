@@ -1,6 +1,6 @@
 package com.siuuuuu.commodeami.movie.command.domain.repository;
 
-import com.siuuuuu_o3o.commodeami.movie.command.aggregate.entity.Movie;
+import com.siuuuuu.commodeami.movie.command.aggregate.entity.Movie;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

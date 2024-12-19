@@ -1,6 +1,6 @@
 package com.siuuuuu.commodeami.user.command.aggregate.dto;
 
-import com.siuuuuu_o3o.commodeami.user.command.aggregate.entity.Gender;
+import com.siuuuuu.commodeami.user.command.aggregate.entity.Gender;
 import lombok.Data;
 
 import java.time.LocalDateTime;
