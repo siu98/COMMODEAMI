@@ -1,7 +1,7 @@
 package com.siuuuuu.commodeami.movieactor.command.aggregate.entity;
 
-import com.siuuuuu_o3o.commodeami.actor.command.aggregate.entity.Actor;
-import com.siuuuuu_o3o.commodeami.movie.command.aggregate.entity.Movie;
+import com.siuuuuu.commodeami.actor.command.aggregate.entity.Actor;
+import com.siuuuuu.commodeami.movie.command.aggregate.entity.Movie;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +19,9 @@ public class MovieActor {
 
     @Column(name="role")
     private String role;
+
+    @Column(name="order")
+    private Integer castingOrder;
 
     @ManyToOne
     @JoinColumn(name="actor_id")

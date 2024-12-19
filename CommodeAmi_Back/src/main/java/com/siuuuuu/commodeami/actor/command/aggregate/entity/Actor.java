@@ -24,6 +24,9 @@ public class Actor {
     @Column(name="profile_image")
     private String profileImage;
 
+    @Column(name="known_for_department")
+    private String knownForDepartment;
+
     @Column(name="original_name")
     private String originalName;
 }

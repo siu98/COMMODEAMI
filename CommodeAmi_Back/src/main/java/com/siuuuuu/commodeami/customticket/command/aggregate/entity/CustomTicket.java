@@ -1,10 +1,8 @@
 package com.siuuuuu.commodeami.customticket.command.aggregate.entity;
 
-import com.siuuuuu_o3o.commodeami.user.command.aggregate.entity.User;
+import com.siuuuuu.commodeami.user.command.aggregate.entity.User;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @Entity

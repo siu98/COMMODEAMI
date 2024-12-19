@@ -1,10 +1,8 @@
 package com.siuuuuu.commodeami.averagescope.command.aggregate.entity;
 
-import com.siuuuuu_o3o.commodeami.movie.command.aggregate.entity.Movie;
+import com.siuuuuu.commodeami.movie.command.aggregate.entity.Movie;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 
 @Data
@@ -18,7 +16,7 @@ public class AverageScope {
     private Long averageScopeId;
 
     @Column(name="average_scope")
-    private String averageScope;
+    private Double averageScope;
 
     @Column(name="number_of_people")
     private Integer numberOfPeople;

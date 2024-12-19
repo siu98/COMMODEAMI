@@ -1,6 +1,6 @@
 package com.siuuuuu.commodeami.averagescope.command.aggregate.dto;
 
-import com.siuuuuu_o3o.commodeami.movie.command.aggregate.entity.Movie;
+import com.siuuuuu.commodeami.movie.command.aggregate.entity.Movie;
 import lombok.Data;
 
 @Data

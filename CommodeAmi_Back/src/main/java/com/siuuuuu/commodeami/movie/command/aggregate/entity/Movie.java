@@ -61,9 +61,11 @@ public class Movie {
     private Long apiId;
 
 
-    public Movie(Long movieId, String title) {
+    public Movie(Long movieId, String title, String plot, Date releasedAt) {
         this.movieId = movieId;
         this.title = title;
+        this.plot = plot;
+        this.releasedAt = releasedAt;
     }
 
 }
