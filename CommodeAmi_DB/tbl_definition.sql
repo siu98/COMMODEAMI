@@ -73,7 +73,6 @@ CREATE TABLE TBL_MOVIE_ACTOR (
 
 CREATE TABLE TBL_REVIEW (
     review_id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    scope DOUBLE,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     watched_at DATE,
     review TEXT,
@@ -92,5 +91,5 @@ CREATE TABLE TBL_SCOPE (
                                    review_id BIGINT,
                                    CONSTRAINT fk_scope_movie FOREIGN KEY (movie_id) REFERENCES TBL_MOVIE(movie_id) ON DELETE CASCADE,
                                    CONSTRAINT fk_scope_user FOREIGN KEY (user_id) REFERENCES TBL_USER(user_id) ON DELETE CASCADE,
-                                   CONSTRAINT fk_scope_review FOREIGN KEY (review_id) REFERENCES  TBL_REVIEW(review_id) ON DELETE CASCADE,
+                                   CONSTRAINT fk_scope_review FOREIGN KEY (review_id) REFERENCES  TBL_REVIEW(review_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
