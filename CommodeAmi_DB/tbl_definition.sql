@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS `TBL_AVERAGE_SCOPE`;
 DROP TABLE IF EXISTS `TBL_REVIEW`;
 DROP TABLE IF EXISTS `TBL_MOVIE`;
 DROP TABLE IF EXISTS `TBL_USER`;
+DROP TABLE IF EXISTS `TBL_SCOPE`;
 
 CREATE TABLE TBL_USER (
     user_id BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -80,4 +81,16 @@ CREATE TABLE TBL_REVIEW (
     user_id BIGINT,
     CONSTRAINT fk_review_movie FOREIGN KEY (movie_id) REFERENCES TBL_MOVIE(movie_id) ON DELETE CASCADE,
     CONSTRAINT fk_review_user FOREIGN KEY (user_id) REFERENCES TBL_USER(user_id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE TBL_SCOPE (
+                                   scope_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                   scope DOUBLE,
+                                   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                                   movie_id BIGINT,
+                                   user_id BIGINT,
+                                   review_id BIGINT,
+                                   CONSTRAINT fk_scope_movie FOREIGN KEY (movie_id) REFERENCES TBL_MOVIE(movie_id) ON DELETE CASCADE,
+                                   CONSTRAINT fk_scope_user FOREIGN KEY (user_id) REFERENCES TBL_USER(user_id) ON DELETE CASCADE,
+                                   CONSTRAINT fk_scope_review FOREIGN KEY (review_id) REFERENCES  TBL_REVIEW(review_id) ON DELETE CASCADE,
 ) ENGINE=InnoDB;
