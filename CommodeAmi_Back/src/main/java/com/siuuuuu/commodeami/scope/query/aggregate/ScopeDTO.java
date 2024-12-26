@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -20,6 +21,9 @@ public class ScopeDTO {
 
     @JsonProperty("created_at")
     private LocalDateTime createdAt;
+
+    @JsonProperty("watched_at")
+    private Date watchedAt;
 
     @JsonProperty("movie_id")
     private Long movieId;

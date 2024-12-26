@@ -33,4 +33,16 @@ public class ScopeController {
     public ResponseDTO<?> deleteScope(@PathVariable("scopeId") Long scopeId) {
         return ResponseDTO.ok(scopeService.deleteScope(scopeId));
     }
+
+    @PostMapping("/watched-at/{scopeId}")
+    public ResponseDTO<?> createOrUpdateWatchedAt(@PathVariable("scopeId") Long scopeId,
+                                                  @RequestBody ScopeDTO scopeDTO) {
+        return ResponseDTO.ok(scopeService.createOrUpdateWatchedAt(scopeId, scopeDTO));
+    }
+
+    @DeleteMapping("/watched-at/{scopeId}")
+    public ResponseDTO<?> deleteWatchedAt(@PathVariable("scopeId") Long scopeId) {
+        return ResponseDTO.ok(scopeService.deleteWatchedAt(scopeId));
+    }
 }
+

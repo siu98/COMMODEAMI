@@ -1,7 +1,7 @@
 package com.siuuuuu.commodeami.scope.command.application.service;
 
 import com.siuuuuu.commodeami.movie.command.domain.repository.MovieRepository;
-import com.siuuuuu.commodeami.review.command.aggregate.entity.Review;
+import com.siuuuuu.commodeami.review.command.domain.repository.ReviewRepository;
 import com.siuuuuu.commodeami.scope.command.aggregate.dto.ScopeDTO;
 import com.siuuuuu.commodeami.scope.command.aggregate.entity.Scope;
 import com.siuuuuu.commodeami.scope.command.domain.repository.ScopeRepository;
@@ -15,14 +15,17 @@ public class ScopeServiceImpl implements ScopeService {
     private final ScopeRepository scopeRepository;
     private final UserRepository userRepository;
     private final MovieRepository movieRepository;
+    private final ReviewRepository reviewRepository;
 
     @Autowired
     public ScopeServiceImpl(ScopeRepository scopeRepository,
                             UserRepository userRepository,
-                            MovieRepository movieRepository) {
+                            MovieRepository movieRepository,
+                            ReviewRepository reviewRepository) {
         this.scopeRepository = scopeRepository;
         this.userRepository = userRepository;
         this.movieRepository = movieRepository;
+        this.reviewRepository = reviewRepository;
     }
 
     @Override
@@ -46,12 +49,14 @@ public class ScopeServiceImpl implements ScopeService {
             // 별점 수정
             existingScopeDTO.setScope(scopeDTO.getScope());
             existingScopeDTO.setCreatedAt(scopeDTO.getCreatedAt());
+            existingScopeDTO.setWatchedAt(scopeDTO.getWatchedAt()); // 관람일자 업데이트 (null일 경우 그대로 유지)
 
             // DTO -> entity 변환
             Scope updatedScope = new Scope();
             updatedScope.setScopeId(existingScopeDTO.getScopeId());
             updatedScope.setScope(existingScopeDTO.getScope());
             updatedScope.setCreatedAt(existingScopeDTO.getCreatedAt());
+            updatedScope.setWatchedAt(existingScopeDTO.getWatchedAt());
             updatedScope.setUser(userRepository.findById(userId)
                     .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다.")));
             updatedScope.setMovie(movieRepository.findById(movieId)
@@ -68,6 +73,7 @@ public class ScopeServiceImpl implements ScopeService {
                     updatedScope.getScopeId(),
                     updatedScope.getScope(),
                     updatedScope.getCreatedAt(),
+                    updatedScope.getWatchedAt(),
                     updatedScope.getUser().getUserId(),
                     updatedScope.getMovie().getMovieId(),
                     updatedScope.getReview() != null ? updatedScope.getReview().getReviewId() : null
@@ -93,6 +99,7 @@ public class ScopeServiceImpl implements ScopeService {
                     savedScope.getScopeId(),
                     savedScope.getScope(),
                     savedScope.getCreatedAt(),
+                    savedScope.getWatchedAt(), // 관람일자 반환
                     savedScope.getUser().getUserId(),
                     savedScope.getMovie().getMovieId(),
                     savedScope.getReview() != null ? savedScope.getReview().getReviewId() : null
@@ -101,8 +108,6 @@ public class ScopeServiceImpl implements ScopeService {
 
             );
         }
-
-
     }
 
     @Override
@@ -119,10 +124,59 @@ public class ScopeServiceImpl implements ScopeService {
                 scope.getScopeId(),
                 scope.getScope(),
                 scope.getCreatedAt(),
+                scope.getWatchedAt(),
                 scope.getUser().getUserId(),
                 scope.getMovie().getMovieId(),
                 scope.getReview() != null ? scope.getReview().getReviewId() : null // 리뷰 ID 포함
         );
     }
 
+    @Override
+    public ScopeDTO createOrUpdateWatchedAt(Long scopeId, ScopeDTO scopeDTO) {
+        // 1. 별점 존재 여부 확인
+        Scope scope = scopeRepository.findById(scopeId)
+                .orElseThrow(() -> new IllegalArgumentException("별점을 찾을 수 없습니다: scopeId=" + scopeId));
+
+        // 2. 관람일자 추가 또는 수정
+        scope.setWatchedAt(scopeDTO.getWatchedAt());
+        Scope updatedScope = scopeRepository.save(scope);
+
+        // 3. DTO 반환
+        return new ScopeDTO(
+                updatedScope.getScopeId(),
+                updatedScope.getScope(),
+                updatedScope.getCreatedAt(),
+                updatedScope.getWatchedAt(),
+                scope.getUser().getUserId(),
+                scope.getMovie().getMovieId(),
+                scope.getReview() != null ? scope.getReview().getReviewId() : null // 리뷰 ID 포함
+        );
+    }
+
+    @Override
+    public ScopeDTO deleteWatchedAt(Long scopeId) {
+        // 1. 별점 존재여부 확인
+        Scope scope = scopeRepository.findById(scopeId)
+                .orElseThrow(() -> new IllegalArgumentException("별점을 찾을 수 없습니다: scopeId=" + scopeId));
+
+        // 2. 관람일자 존재 여부 확인
+        if (scope.getWatchedAt() == null) {
+            throw new IllegalArgumentException("관람일자가 설정되어 있지 않습니다: scopeId=" + scopeId);
+        }
+
+        // 3. 관람일자 삭제
+        scope.setWatchedAt(null);
+        Scope updatedScope = scopeRepository.save(scope);
+
+        // 4. DTO 반환
+        return new ScopeDTO(
+                updatedScope.getScopeId(),
+                updatedScope.getScope(),
+                updatedScope.getCreatedAt(),
+                updatedScope.getWatchedAt(),
+                scope.getUser().getUserId(),
+                scope.getMovie().getMovieId(),
+                scope.getReview() != null ? scope.getReview().getReviewId() : null // 리뷰 ID 포함
+        );
+    }
 }

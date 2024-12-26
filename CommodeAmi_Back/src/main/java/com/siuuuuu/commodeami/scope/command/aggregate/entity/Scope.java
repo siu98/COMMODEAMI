@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @Entity
@@ -27,6 +28,10 @@ public class Scope {
 
     @Column(name="created_at")
     private LocalDateTime createdAt;
+
+    // 관람일자
+    @Column(name="watched_at")
+    private Date watchedAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="movie_id")
