@@ -19,18 +19,10 @@ public class Review {
     @Column(name="review_id")
     private Long reviewId;
 
-    // 별점
-//    @Column(name="scope")
-//    private Double scope;
-
     // 생성일
     @CreationTimestamp
     @Column(name="created_at")
     private LocalDateTime createdAt;
-
-    // 관람일자
-    @Column(name="watched_at")
-    private Date watchedAt;
 
     // 리뷰
     @Column(name="review")

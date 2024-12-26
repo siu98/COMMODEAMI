@@ -1,22 +1,19 @@
-package com.siuuuuu.commodeami.scope.query.aggregate;
+package com.siuuuuu.commodeami.review.query.aggregate;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Scope {
+public class Review {
 
-    Long scopeId;
-    Double scope;
+    Long ReviewId;
     LocalDateTime createdAt;
-    Date watchedAt;
-    Long movieId;
+    String review;
     Long userId;
-    Long reviewId;
+    Long movieId;
 }

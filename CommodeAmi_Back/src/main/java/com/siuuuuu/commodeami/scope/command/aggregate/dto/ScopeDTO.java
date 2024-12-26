@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -14,6 +15,7 @@ public class ScopeDTO {
     private Long scopeId;
     private Double scope;
     private LocalDateTime createdAt;
+    private Date watchedAt;
     private Long movieId;
     private Long reviewId;
     private Long userId;

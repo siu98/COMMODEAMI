@@ -7,6 +7,7 @@
         <id property="scopeId" column="scope_id" />
         <result property="scope" column="scope" />
         <result property="createdAt" column="created_at" />
+        <result property="watchedAt" column="watched_at" />
         <result property="userId" column="user_id" />
         <result property="reviewId" column="review_id"/>
         <result property="movieId" column="movie_id" />
@@ -17,6 +18,7 @@
             SCOPE_ID
            ,SCOPE
            ,CREATED_AT
+           ,WATCHED_AT
            ,REVIEW_ID
            ,USER_ID
            ,MOVIE_ID
@@ -29,6 +31,7 @@
             SCOPE_ID
            ,SCOPE
            ,CREATED_AT
+           ,WATCHED_AT
            ,REVIEW_ID
            ,USER_ID
            ,MOVIE_ID
@@ -43,6 +46,7 @@
             SCOPE_ID
            ,SCOPE
            ,CREATED_AT
+           ,WATCHED_AT
            ,REVIEW_ID
            ,USER_ID
            ,MOVIE_ID
