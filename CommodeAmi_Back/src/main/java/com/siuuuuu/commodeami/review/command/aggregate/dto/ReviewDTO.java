@@ -11,7 +11,6 @@ import java.util.Date;
 public class ReviewDTO {
 
     private Long reviewId;
-    private Long scope;
     private LocalDateTime createdAt;
     private Date watchedAt;
     private String review;
