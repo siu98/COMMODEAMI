@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.siuuuuu.commodeami.averagescope.query.repository.AverageScopeMapper">
+    <resultMap id="averageScopeResultMap" type="com.siuuuuu.commodeami.averagescope.query.aggregate.AverageScope">
+        <id property="averageScopeId" column="average_scope_id" />
+        <result property="averageScope" column="average_scope" />
+        <result property="numberOfPeople" column="number_of_people" />
+        <result property="movieId" column="movie_id" />
+    </resultMap>
+
+    <select id="selectAllAverageScopes" resultMap="averageScopeResultMap">
+        SELECT
+            AVG(s.SCOPE) AS averageScope,
+            COUNT(s.SCOPE) AS scopeCount,
+            s.MOVIE_ID AS movieId
+         FROM
+            TBL_SCOPE s
+         GROUP BY
+            s.MOVIE_ID
+    </select>
+
+    <select id="selectAverageScopeByMovieId" resultMap="averageScopeResultMap">
+        SELECT
+            AVG(s.SCOPE) AS averageScope,
+            COUNT(s.SCOPE) AS scopeCount,
+            s.MOVIE_ID AS movieId
+         FROM
+            TBL_SCOPE s
+        WHERE
+            s.MOVIE_ID = #{movieId}
+         GROUP BY
+            s.MOVIE_ID
+    </select>
+</mapper>
