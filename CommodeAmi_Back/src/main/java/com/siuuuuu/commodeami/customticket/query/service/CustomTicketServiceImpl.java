@@ -2,7 +2,7 @@ package com.siuuuuu.commodeami.customticket.query.service;
 
 import com.siuuuuu.commodeami.customticket.query.aggregate.CustomTicket;
 import com.siuuuuu.commodeami.customticket.query.aggregate.CustomTicketDTO;
-import com.siuuuuu.commodeami.customticket.query.repository.CustomTIcketMapper;
+import com.siuuuuu.commodeami.customticket.query.repository.CustomTicketMapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,11 +13,11 @@ import java.util.stream.Collectors;
 @Service
 public class CustomTicketServiceImpl implements CustomTicketService {
 
-    private final CustomTIcketMapper customTicketMapper;
+    private final CustomTicketMapper customTicketMapper;
     private final ModelMapper modelMapper;
 
     @Autowired
-    public CustomTicketServiceImpl(CustomTIcketMapper customTicketMapper,
+    public CustomTicketServiceImpl(CustomTicketMapper customTicketMapper,
                                    ModelMapper modelMapper) {
         this.customTicketMapper = customTicketMapper;
         this.modelMapper = modelMapper;

@@ -20,8 +20,8 @@ public class Review {
     private Long reviewId;
 
     // 별점
-    @Column(name="scope")
-    private Double scope;
+//    @Column(name="scope")
+//    private Double scope;
 
     // 생성일
     @CreationTimestamp

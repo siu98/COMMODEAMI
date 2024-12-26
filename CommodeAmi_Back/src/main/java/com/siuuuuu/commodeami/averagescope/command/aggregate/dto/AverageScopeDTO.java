@@ -7,7 +7,7 @@ import lombok.Data;
 public class AverageScopeDTO {
 
     private Long averageScopeId;
-    private String averageScope;
+    private Double averageScope;
     private Integer numberOfPeople;
-    private Movie movie;
+    private Long movieId;
 }
