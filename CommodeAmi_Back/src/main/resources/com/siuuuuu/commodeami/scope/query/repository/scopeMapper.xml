@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.siuuuuu.commodeami.scope.query.repository.ScopeMapper">
+    <resultMap id="scopeResultMap" type="com.siuuuuu.commodeami.scope.query.aggregate.Scope">
+        <id property="scopeId" column="scope_id" />
+        <result property="scope" column="scope" />
+        <result property="createdAt" column="created_at" />
+        <result property="userId" column="user_id" />
+        <result property="reviewId" column="review_id"/>
+        <result property="movieId" column="movie_id" />
+    </resultMap>
+
+    <select id="selectAllScopes" resultMap="scopeResultMap">
+        SELECT
+            SCOPE_ID
+           ,SCOPE
+           ,CREATED_AT
+           ,REVIEW_ID
+           ,USER_ID
+           ,MOVIE_ID
+         FROM
+            TBL_SCOPE
+    </select>
+
+    <select id="selectScopesByUserId" resultMap="scopeResultMap">
+        SELECT
+            SCOPE_ID
+           ,SCOPE
+           ,CREATED_AT
+           ,REVIEW_ID
+           ,USER_ID
+           ,MOVIE_ID
+         FROM
+            TBL_SCOPE
+        WHERE
+            USER_ID = #{USER_ID}
+    </select>
+
+    <select id="selectScopesByMovieId" resultMap="scopeResultMap">
+        SELECT
+            SCOPE_ID
+           ,SCOPE
+           ,CREATED_AT
+           ,REVIEW_ID
+           ,USER_ID
+           ,MOVIE_ID
+         FROM
+            TBL_SCOPE
+        WHERE
+            MOVIE_ID = #{MOVIE_ID}
+    </select>
+</mapper>
