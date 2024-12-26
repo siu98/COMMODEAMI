@@ -72,24 +72,24 @@ CREATE TABLE TBL_MOVIE_ACTOR (
 ) ENGINE=InnoDB;
 
 CREATE TABLE TBL_REVIEW (
-    review_id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    watched_at DATE,
-    review TEXT,
-    movie_id BIGINT,
-    user_id BIGINT,
-    CONSTRAINT fk_review_movie FOREIGN KEY (movie_id) REFERENCES TBL_MOVIE(movie_id) ON DELETE CASCADE,
-    CONSTRAINT fk_review_user FOREIGN KEY (user_id) REFERENCES TBL_USER(user_id) ON DELETE CASCADE
+                            review_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                            review TEXT,
+                            movie_id BIGINT,
+                            user_id BIGINT,
+                            CONSTRAINT fk_review_movie FOREIGN KEY (movie_id) REFERENCES TBL_MOVIE(movie_id) ON DELETE CASCADE,
+                            CONSTRAINT fk_review_user FOREIGN KEY (user_id) REFERENCES TBL_USER(user_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 CREATE TABLE TBL_SCOPE (
-                                   scope_id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                                   scope DOUBLE,
-                                   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-                                   movie_id BIGINT,
-                                   user_id BIGINT,
-                                   review_id BIGINT,
-                                   CONSTRAINT fk_scope_movie FOREIGN KEY (movie_id) REFERENCES TBL_MOVIE(movie_id) ON DELETE CASCADE,
-                                   CONSTRAINT fk_scope_user FOREIGN KEY (user_id) REFERENCES TBL_USER(user_id) ON DELETE CASCADE,
-                                   CONSTRAINT fk_scope_review FOREIGN KEY (review_id) REFERENCES  TBL_REVIEW(review_id) ON DELETE CASCADE
+                           scope_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                           scope DOUBLE,
+                           created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                           watched_at DATE,
+                           movie_id BIGINT,
+                           user_id BIGINT,
+                           review_id BIGINT,
+                           CONSTRAINT fk_scope_movie FOREIGN KEY (movie_id) REFERENCES TBL_MOVIE(movie_id) ON DELETE CASCADE,
+                           CONSTRAINT fk_scope_user FOREIGN KEY (user_id) REFERENCES TBL_USER(user_id) ON DELETE CASCADE,
+                           CONSTRAINT fk_scope_review FOREIGN KEY (review_id) REFERENCES  TBL_REVIEW(review_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
