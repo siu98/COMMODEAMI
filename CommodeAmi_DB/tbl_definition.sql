@@ -71,16 +71,6 @@ CREATE TABLE TBL_MOVIE_ACTOR (
     CONSTRAINT fk_movie_actor_movie FOREIGN KEY (movie_id) REFERENCES TBL_MOVIE(movie_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE TBL_REVIEW (
-                            review_id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-                            review TEXT,
-                            movie_id BIGINT,
-                            user_id BIGINT,
-                            CONSTRAINT fk_review_movie FOREIGN KEY (movie_id) REFERENCES TBL_MOVIE(movie_id) ON DELETE CASCADE,
-                            CONSTRAINT fk_review_user FOREIGN KEY (user_id) REFERENCES TBL_USER(user_id) ON DELETE CASCADE
-) ENGINE=InnoDB;
-
 CREATE TABLE TBL_SCOPE (
                            scope_id BIGINT AUTO_INCREMENT PRIMARY KEY,
                            scope DOUBLE,
@@ -90,6 +80,18 @@ CREATE TABLE TBL_SCOPE (
                            user_id BIGINT,
                            review_id BIGINT,
                            CONSTRAINT fk_scope_movie FOREIGN KEY (movie_id) REFERENCES TBL_MOVIE(movie_id) ON DELETE CASCADE,
-                           CONSTRAINT fk_scope_user FOREIGN KEY (user_id) REFERENCES TBL_USER(user_id) ON DELETE CASCADE,
-                           CONSTRAINT fk_scope_review FOREIGN KEY (review_id) REFERENCES  TBL_REVIEW(review_id) ON DELETE CASCADE
+                           CONSTRAINT fk_scope_user FOREIGN KEY (user_id) REFERENCES TBL_USER(user_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
+
+CREATE TABLE TBL_REVIEW (
+                            review_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                            review TEXT,
+                            movie_id BIGINT,
+                            user_id BIGINT,
+                            scope_id BIGINT,
+                            CONSTRAINT fk_review_movie FOREIGN KEY (movie_id) REFERENCES TBL_MOVIE(movie_id) ON DELETE CASCADE,
+                            CONSTRAINT fk_review_user FOREIGN KEY (user_id) REFERENCES TBL_USER(user_id) ON DELETE CASCADE,
+                            CONSTRAINT fk_review_scope FOREIGN KEY (scope_id) REFERENCES  TBL_SCOPE(scope_id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
