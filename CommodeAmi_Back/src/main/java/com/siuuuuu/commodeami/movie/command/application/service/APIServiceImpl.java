@@ -43,8 +43,8 @@ public class APIServiceImpl implements APIService {
         this.movieRepository = movieRepository;
     }
 
-    @Scheduled(cron = "0 0 1 * * ?")
-    @Scheduled(fixedRate = 10000000)
+//    @Scheduled(cron = "0 0 1 * * ?")
+//    @Scheduled(fixedRate = 10000000)
     @Override
 //    @Transactional
     public List<PopularMovieDTO> fetchPopularMovies() {

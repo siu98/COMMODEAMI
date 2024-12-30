@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.siuuuuu.commodeami.customticket.query.repository.CustomTicketMapper">
+    <resultMap id="customticketResultMap" type="com.siuuuuu.commodeami.customticket.query.aggregate.CustomTicket">
+        <id property="customTicketId" column="custom_ticket_id" />
+        <result property="ticketImage" column="ticket_image" />
+        <result property="hologramColor1" column="hologram_color1" />
+        <result property="hologramColor2" column="hologram_color2" />
+        <result property="comment" column="comment" />
+        <result property="userId" column="user_id" />
+    </resultMap>
+
+    <select id="selectAllCustomTickets" resultMap="customticketResultMap">
+        SELECT
+            CUSTOM_TICKET_ID
+           ,TICKET_IMAGE
+           ,HOHOGRAM_COLOR1
+           ,HOLOGRAM_COLOR2
+           ,COMMENT
+           ,USER_ID
+         FROM
+            TBL_CUSTOM_TICKET
+    </select>
+
+    <select id="selectCustomTicketsByUserId" resultMap="customticketResultMap">
+        SELECT
+            CUSTOM_TICKET_ID
+           ,TICKET_IMAGE
+           ,HOHOGRAM_COLOR1
+           ,HOLOGRAM_COLOR2
+           ,COMMENT
+           ,USER_ID
+          FROM
+           TBL_CUSTOM_TICKET
+         WHERE
+           USER_ID = #{USER_ID}
+    </select>
+</mapper>

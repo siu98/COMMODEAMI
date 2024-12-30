@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.siuuuuu.commodeami.user.query.repository.UserMapper">
+    <resultMap id="userResultMap" type="com.siuuuuu.commodeami.user.command.aggregate.entity.User">
+        <id property="userId" column="user_id" />
+        <result property="userName" column="user_name" />
+        <result property="email" column="email" />
+        <result property="password" column="password" />
+        <result property="profile" column="profile" />
+        <result property="nickname" column="nickname" />
+        <result property="birthDate" column="birth_date" />
+        <result property="gender" column="gender" />
+        <result property="createdAt" column="created_at" />
+    </resultMap>
+
+    <select id="findByEmail" resultMap="userResultMap">
+        SELECT
+            USER_ID
+           ,USER_NAME
+           ,EMAIL
+           ,PASSWORD
+           ,PROFILE
+           ,NICKNAME
+           ,BIRTH_DATE
+           ,GENDER
+           ,CREATED_AT
+         FROM
+            TBL_USER
+        WHERE
+            EMAIL = #{email}
+    </select>
+
+    <select id="findByUserId" resultMap="userResultMap">
+        SELECT
+            USER_ID
+           ,USER_NAME
+           ,EMAIL
+           ,PASSWORD
+           ,PROFILE
+           ,NICKNAME
+           ,BIRTH_DATE
+           ,GENDER
+           ,CREATED_AT
+         FROM
+            TBL_USER
+        WHERE
+            USER_ID = #{userId}
+
+    </select>
+</mapper>

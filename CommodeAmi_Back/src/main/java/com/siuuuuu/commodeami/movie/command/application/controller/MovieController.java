@@ -1,7 +1,7 @@
-package com.siuuuuu.commodeami.movie.command.application.controller;//package com.siuuuuu_o3o.commodeami.movie.command.application.controller;
+//package com.siuuuuu.commodeami.movie.command.application.controller;//package com.siuuuuu_o3o.commodeami.movie.command.application.controller;
 //
-//import com.siuuuuu_o3o.commodeami.common.ResponseDTO;
-//import com.siuuuuu_o3o.commodeami.movie.command.application.service.MovieService;
+//import com.siuuuuu.commodeami.common.ResponseDTO;
+//import com.siuuuuu.commodeami.movie.command.application.service.MovieService;
 //import lombok.extern.slf4j.Slf4j;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.web.bind.annotation.*;
