@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.siuuuuu.commodeami.movie.query.repository.MovieMapper">
+    <resultMap id="movieResultMap" type="com.siuuuuu.commodeami.movie.query.aggregate.Movie">
+        <id property="movieId" column="movie_id" />
+        <result property="title" column="title" />
+        <result property="plot" column="plot" />
+        <result property="releasedAt" column="released_at" />
+        <result property="posterUrl" column="poster_url" />
+        <result property="genre" column="genre" />
+        <result property="originalTitle" column="original_title" />
+        <result property="originalCountry" column="original_country" />
+        <result property="stills" column="stills" />
+        <result property="runningTime" column="running_time" />
+        <result property="youtubeUrl" column="youtube_url" />
+        <result property="cumulativeAudience" column="cumulative_audience" />
+        <result property="boxOfficeRank" column="box_office_rank" />
+        <result property="apiId" column="api_id" />
+    </resultMap>
+
+    <select id="selectMovieById" resultMap="movieResultMap">
+        SELECT
+            MOVIE_ID
+           ,TITLE
+           ,PLOT
+           ,RELEASED_AT
+           ,POSTER_URL
+           ,GENRE
+           ,ORIGINAL_TITLE
+           ,ORIGINAL_COUNTRY
+           ,STILLS
+           ,RUNNING_TIME
+           ,YOUTUBE_URL
+           ,CUMULATIVE_AUDIENCE
+           ,BOX_OFFICE_RANK
+           ,API_ID
+         FROM
+            TBL_MOVIE
+        WHERE
+            MOVIE_ID = #{MOVIE_ID}
+    </select>
+</mapper>

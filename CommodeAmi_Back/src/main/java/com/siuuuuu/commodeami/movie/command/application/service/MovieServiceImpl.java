@@ -1,16 +1,15 @@
-package com.siuuuuu.commodeami.movie.command.application.service;//package com.siuuuuu_o3o.commodeami.movie.command.application.service;
+//package com.siuuuuu.commodeami.movie.command.application.service;//package com.siuuuuu_o3o.commodeami.movie.command.application.service;
 //
-//import com.siuuuuu_o3o.commodeami.movie.command.aggregate.dto.MovieDetailDTO;
-//import com.siuuuuu_o3o.commodeami.movie.command.aggregate.dto.PopularMovieDTO;
-//import com.siuuuuu_o3o.commodeami.movie.command.aggregate.entity.Movie;
-//import com.siuuuuu_o3o.commodeami.movie.command.domain.repository.MovieRepository;
+//import com.siuuuuu.commodeami.movie.command.aggregate.dto.MovieDetailDTO;
+//import com.siuuuuu.commodeami.movie.command.aggregate.dto.PopularMovieDTO;
+//import com.siuuuuu.commodeami.movie.command.aggregate.entity.Movie;
+//import com.siuuuuu.commodeami.movie.command.domain.repository.MovieRepository;
 //import lombok.extern.slf4j.Slf4j;
 //import org.modelmapper.ModelMapper;
 //import org.springframework.stereotype.Service;
 //import org.springframework.transaction.annotation.Transactional;
 //
 //import java.util.List;
-//import java.util.stream.Collectors;
 //
 //@Service
 //@Slf4j
@@ -28,58 +27,58 @@ package com.siuuuuu.commodeami.movie.command.application.service;//package com.s
 //        log.info("MovieServiceImpl initialized successfully");
 //    }
 //
-////    @Override
-////    public List<PopularMovieDTO> getPopularMovies() {
-////        // APIService를 호출해 인기 영화 목록 가져오기
-////        log.info("getPopularMovies 확");
-////        return apiService.fetchPopularMovies();
-////    }
+//////    @Override
+//////    public List<PopularMovieDTO> getPopularMovies() {
+//////        // APIService를 호출해 인기 영화 목록 가져오기
+//////        log.info("getPopularMovies 확");
+//////        return apiService.fetchPopularMovies();
+//////    }
+//////
+//////    @Override
+//////    public MovieDetailDTO getMovieDetails(Long movieId) {
+//////        // APIService를 호출해 영화 상세 정보 가져오기
+//////        return apiService.fetchMovieDetails(movieId);
+//////    }
 ////
-////    @Override
-////    public MovieDetailDTO getMovieDetails(Long movieId) {
-////        // APIService를 호출해 영화 상세 정보 가져오기
-////        return apiService.fetchMovieDetails(movieId);
-////    }
-//
-////    @Override
-////    @Transactional
-////    public void savePopularMovies() {
-////        log.info("savePopularMovies() called");
-////
-////        List<PopularMovieDTO> popularMovies = apiService.fetchPopularMovies();
-////        log.info("Fetched {} popular movies", popularMovies.size());
-////
-////        for (PopularMovieDTO dto : popularMovies) {
-////            if (!movieRepository.existsByTitle(dto.getTitle())) {
-////                Movie movie = new Movie();
-////                movie.setMovieId(dto.getId());
-////                movie.setTitle(dto.getTitle());
-////                movie.setPlot(dto.getOverview());
-////                movieRepository.save(movie);
-////                log.info("Saved popular movie: {}", dto.getTitle());
-////            }
-////        }
-////    }
-////@Override
-////@Transactional
-////public void savePopularMovies() {
-////    log.info("savePopularMovies() called");
-////
-////    List<PopularMovieDTO> popularMovies = apiService.fetchPopularMovies();
-////    log.info("Fetched {} popular movies", popularMovies.size());
-////
-////    ModelMapper modelMapper = new ModelMapper();
-////
-////    for (PopularMovieDTO dto : popularMovies) {
-////        if (!movieRepository.existsByTitle(dto.getTitle())) {
-////            // DTO → Entity 매핑
-////            Movie movie = modelMapper.map(dto, Movie.class);
-////            movieRepository.save(movie);
-////            log.info("Saved popular movie: {}", dto.getTitle());
-////        }
-////    }
-////
-////}
+//////    @Override
+//////    @Transactional
+//////    public void savePopularMovies() {
+//////        log.info("savePopularMovies() called");
+//////
+//////        List<PopularMovieDTO> popularMovies = apiService.fetchPopularMovies();
+//////        log.info("Fetched {} popular movies", popularMovies.size());
+//////
+//////        for (PopularMovieDTO dto : popularMovies) {
+//////            if (!movieRepository.existsByTitle(dto.getTitle())) {
+//////                Movie movie = new Movie();
+//////                movie.setMovieId(dto.getId());
+//////                movie.setTitle(dto.getTitle());
+//////                movie.setPlot(dto.getOverview());
+//////                movieRepository.save(movie);
+//////                log.info("Saved popular movie: {}", dto.getTitle());
+//////            }
+//////        }
+//////    }
+//////@Override
+//////@Transactional
+//////public void savePopularMovies() {
+//////    log.info("savePopularMovies() called");
+//////
+//////    List<PopularMovieDTO> popularMovies = apiService.fetchPopularMovies();
+//////    log.info("Fetched {} popular movies", popularMovies.size());
+//////
+//////    ModelMapper modelMapper = new ModelMapper();
+//////
+//////    for (PopularMovieDTO dto : popularMovies) {
+//////        if (!movieRepository.existsByTitle(dto.getTitle())) {
+//////            // DTO → Entity 매핑
+//////            Movie movie = modelMapper.map(dto, Movie.class);
+//////            movieRepository.save(movie);
+//////            log.info("Saved popular movie: {}", dto.getTitle());
+//////        }
+//////    }
+//////
+//////}
 //@Override
 //@Transactional
 //public void savePopularMovies() {
@@ -100,7 +99,7 @@ package com.siuuuuu.commodeami.movie.command.application.service;//package com.s
 //        if (!movieRepository.existsByTitle(dto.getTitle())) {
 //            Movie movie = new Movie();
 //            movie.setTitle(dto.getTitle());
-//            movie.setPlot(dto.getOverview());
+//            movie.setPlot(dto.getPlot());
 //            movieRepository.save(movie);
 //            log.info("Saved movie: {}", dto.getTitle());
 //        } else {
@@ -110,27 +109,27 @@ package com.siuuuuu.commodeami.movie.command.application.service;//package com.s
 //}
 //
 //
-////    @Override
-////    @Transactional
-////    public void saveMovieDetails(Long movieId) {
-////        MovieDetailDTO details = apiService.fetchMovieDetails(movieId);
+//////    @Override
+//////    @Transactional
+//////    public void saveMovieDetails(Long movieId) {
+//////        MovieDetailDTO details = apiService.fetchMovieDetails(movieId);
+//////
+//////        if (details != null) {
+//////            Movie movie = movieRepository.findById(details.getId()).orElse(new Movie());
+//////            movie.setRunningTime(details.getRuntime());
+//////            movie.setPosterUrl(details.getPoster_path());
+//////            movie.setOriginalTitle(details.getOriginal_title());
+//////
+//////            String genreNames = details.getGenres().stream()
+//////                    .map(genre -> genre.getName())
+//////                    .collect(Collectors.joining(", "));
+//////            movie.setGenre(genreNames);
+//////
+//////            movieRepository.save(movie);
+//////            log.info("Saved movie details for ID: {}", movieId);
+//////        }
+//////    }
 ////
-////        if (details != null) {
-////            Movie movie = movieRepository.findById(details.getId()).orElse(new Movie());
-////            movie.setRunningTime(details.getRuntime());
-////            movie.setPosterUrl(details.getPoster_path());
-////            movie.setOriginalTitle(details.getOriginal_title());
-////
-////            String genreNames = details.getGenres().stream()
-////                    .map(genre -> genre.getName())
-////                    .collect(Collectors.joining(", "));
-////            movie.setGenre(genreNames);
-////
-////            movieRepository.save(movie);
-////            log.info("Saved movie details for ID: {}", movieId);
-////        }
-////    }
-//
 //    @Override
 //    @Transactional
 //    public void saveMovieDetails(Long movieId) {

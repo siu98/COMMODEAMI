@@ -1,9 +1,11 @@
 package com.siuuuuu.commodeami.review.command.aggregate.entity;
 
 import com.siuuuuu.commodeami.movie.command.aggregate.entity.Movie;
+import com.siuuuuu.commodeami.scope.command.aggregate.entity.Scope;
 import com.siuuuuu.commodeami.user.command.aggregate.entity.User;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.apache.ibatis.annotations.One;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
@@ -35,4 +37,8 @@ public class Review {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private User user;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="scope_id")
+    private Scope scope;
 }

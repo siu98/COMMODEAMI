@@ -19,11 +19,55 @@ spring:
       hibernate:
         format_sql: true
     generate-ddl: false
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
 logging:
   level:
     com:
       siuuuuu_o3o:
         commodeami: DEBUG #로깅 레벨 설정
+
+springdoc:
+  swagger-ui:
+    # swagger-ui ?? ??. default ?? /swagger-ui.html??.
+    path: /swagger-custom-ui.html
+
+    # ? API? ?? ?? ??
+    # path, query, body, response ??? ??
+    groups-order: DESC
+
+    # ?? ?? ??.
+    # alpha: ??? ? ??
+    # method: OpenAPI specification file? ??? ?? ?? ?? ?? ??
+    tags-sorter: alpha
+
+    # ???? ?? ??.
+    # method? delete - get - patch - post - put ??? ????.
+    # alpha? ??? ??? ??? ??? ? ??.
+    operations-sorter: method
+
+    # swagger-ui default url? petstore html? ???? ??
+    disable-swagger-default-url: true
+
+    # swagger-ui?? try ?? ? request duration? ???? ??
+    display-request-duration: true
+
+  # Spring Actuator? endpoint?? ??? ????
+  show-actuator: true
+
+  # request media type ? ?? ?
+  default-consumes-media-type: application/json
+
+  # response media type ? ?? ?
+  default-produces-media-type: application/json
+
+token:
+  access-expiration-time: 3600000
+  refresh-expiration-time: 86400000
+  secret: Y8xQHdbBkWXO8hEiDNEKxbgtnWlhBVw+q2/djGQMnzgXMCzOkSqDGaFhdL8iNrdKKncyQt/xDXbF2rR/k8Re/Q==
 
 tmdb:
   api:

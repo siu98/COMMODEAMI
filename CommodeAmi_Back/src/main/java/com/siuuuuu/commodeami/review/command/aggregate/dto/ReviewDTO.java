@@ -19,4 +19,5 @@ public class ReviewDTO {
     private LocalDateTime createdAt;
     private Long movieId;
     private Long userId;
+    private Long scopeId;
 }
