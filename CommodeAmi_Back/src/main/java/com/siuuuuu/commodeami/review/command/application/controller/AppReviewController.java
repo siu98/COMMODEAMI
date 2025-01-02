@@ -20,7 +20,7 @@ public class AppReviewController {
     }
 
     // 리뷰 추가
-    @PostMapping("{movieId}/{userId}")
+    @PostMapping("/{movieId}/{userId}")
     public ResponseDTO<?> createReview(@PathVariable("movieId") Long movieId,
                                                @PathVariable("userId") Long userId,
                                                @RequestBody ReviewDTO reviewDTO) {
